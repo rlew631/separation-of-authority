@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this artifact, cite the accompanying paper and this software release."
+title: "Separation of Authority"
+type: software
+version: 0.1.0
+date-released: 2026-08-10
+license: MIT
+repository-code: "https://github.com/rlew631/separation-of-authority"
+authors:
+  - name: "Allmende Labs"
+abstract: >-
+  Minimal single-process reference implementation, abstract-state exploration,
+  invariant-directed fault/ablation suite, and overhead benchmark for separating
+  accepted evidence, derived results, communication, effects, and outcomes.
