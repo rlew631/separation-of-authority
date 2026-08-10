@@ -1,0 +1,10 @@
+attack,invariant,control,strict_block_rate,targeted_ablation_admit_rate,collapsed_admit_rate
+silent_promotion,I1/I2: typed standing and no implicit promotion,typed_standing,1.0,1.0,1.0
+self_authorization,I3: no unilateral effect authorization,independent_effect_authorization,1.0,1.0,1.0
+context_replay,I4: context binding,context_binding,1.0,1.0,1.0
+policy_outage_fallback,I5: failure non-escalation,failure_non_escalation,1.0,1.0,1.0
+unapproved_release,I6: communication-release separation,communication_release_separation,1.0,1.0,1.0
+in_place_overwrite,I7: successor correction,successor_correction,1.0,1.0,1.0
+outcome_reentry,I8: outcome re-entry,outcome_reentry,1.0,1.0,1.0
+assurance_tamper,I10: assurance independence/integrity,assurance_integrity,1.0,1.0,1.0
+expired_authorization,I4 extension: time-bound context,authorization_expiry,1.0,1.0,1.0

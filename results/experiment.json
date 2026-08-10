@@ -1,0 +1,774 @@
+{
+  "abstract_model": {
+    "collapsed": {
+      "bad_fact_catalog": {
+        "bad_assurance_tamper": "I10",
+        "bad_context_replay": "I4",
+        "bad_expired_authorization": "I4-time",
+        "bad_in_place_overwrite": "I7",
+        "bad_outcome_reentry": "I8",
+        "bad_policy_outage_fallback": "I5",
+        "bad_self_authorized_effect": "I3",
+        "bad_silent_promotion": "I1/I2",
+        "bad_unapproved_release": "I6"
+      },
+      "explored_edges": 41653,
+      "profile": "collapsed",
+      "reachable_states": 6729,
+      "violation_count": 9,
+      "violations": {
+        "bad_assurance_tamper": [
+          "accept_evidence",
+          "attack_assurance_tamper"
+        ],
+        "bad_context_replay": [
+          "accept_evidence",
+          "derive",
+          "propose_effect",
+          "authorize_effect",
+          "attack_context_replay"
+        ],
+        "bad_expired_authorization": [
+          "accept_evidence",
+          "derive",
+          "propose_effect",
+          "authorize_effect",
+          "attack_expired_authorization"
+        ],
+        "bad_in_place_overwrite": [
+          "accept_evidence",
+          "attack_in_place_overwrite"
+        ],
+        "bad_outcome_reentry": [
+          "accept_evidence",
+          "derive",
+          "propose_effect",
+          "authorize_effect",
+          "execute_effect",
+          "observe_outcome",
+          "attack_outcome_reentry"
+        ],
+        "bad_policy_outage_fallback": [
+          "accept_evidence",
+          "derive",
+          "propose_effect",
+          "attack_policy_outage"
+        ],
+        "bad_self_authorized_effect": [
+          "accept_evidence",
+          "derive",
+          "propose_effect",
+          "attack_self_authorization"
+        ],
+        "bad_silent_promotion": [
+          "accept_evidence",
+          "derive",
+          "attack_silent_promotion"
+        ],
+        "bad_unapproved_release": [
+          "accept_evidence",
+          "derive",
+          "render",
+          "attack_unapproved_release"
+        ]
+      }
+    },
+    "single_ablations": {
+      "assurance_integrity": {
+        "bad_fact_catalog": {
+          "bad_assurance_tamper": "I10",
+          "bad_context_replay": "I4",
+          "bad_expired_authorization": "I4-time",
+          "bad_in_place_overwrite": "I7",
+          "bad_outcome_reentry": "I8",
+          "bad_policy_outage_fallback": "I5",
+          "bad_self_authorized_effect": "I3",
+          "bad_silent_promotion": "I1/I2",
+          "bad_unapproved_release": "I6"
+        },
+        "explored_edges": 257,
+        "profile": "ablate:assurance_integrity",
+        "reachable_states": 101,
+        "violation_count": 1,
+        "violations": {
+          "bad_assurance_tamper": [
+            "accept_evidence",
+            "attack_assurance_tamper"
+          ]
+        }
+      },
+      "authorization_expiry": {
+        "bad_fact_catalog": {
+          "bad_assurance_tamper": "I10",
+          "bad_context_replay": "I4",
+          "bad_expired_authorization": "I4-time",
+          "bad_in_place_overwrite": "I7",
+          "bad_outcome_reentry": "I8",
+          "bad_policy_outage_fallback": "I5",
+          "bad_self_authorized_effect": "I3",
+          "bad_silent_promotion": "I1/I2",
+          "bad_unapproved_release": "I6"
+        },
+        "explored_edges": 182,
+        "profile": "ablate:authorization_expiry",
+        "reachable_states": 75,
+        "violation_count": 1,
+        "violations": {
+          "bad_expired_authorization": [
+            "accept_evidence",
+            "derive",
+            "propose_effect",
+            "authorize_effect",
+            "attack_expired_authorization"
+          ]
+        }
+      },
+      "communication_release_separation": {
+        "bad_fact_catalog": {
+          "bad_assurance_tamper": "I10",
+          "bad_context_replay": "I4",
+          "bad_expired_authorization": "I4-time",
+          "bad_in_place_overwrite": "I7",
+          "bad_outcome_reentry": "I8",
+          "bad_policy_outage_fallback": "I5",
+          "bad_self_authorized_effect": "I3",
+          "bad_silent_promotion": "I1/I2",
+          "bad_unapproved_release": "I6"
+        },
+        "explored_edges": 184,
+        "profile": "ablate:communication_release_separation",
+        "reachable_states": 75,
+        "violation_count": 1,
+        "violations": {
+          "bad_unapproved_release": [
+            "accept_evidence",
+            "derive",
+            "render",
+            "attack_unapproved_release"
+          ]
+        }
+      },
+      "context_binding": {
+        "bad_fact_catalog": {
+          "bad_assurance_tamper": "I10",
+          "bad_context_replay": "I4",
+          "bad_expired_authorization": "I4-time",
+          "bad_in_place_overwrite": "I7",
+          "bad_outcome_reentry": "I8",
+          "bad_policy_outage_fallback": "I5",
+          "bad_self_authorized_effect": "I3",
+          "bad_silent_promotion": "I1/I2",
+          "bad_unapproved_release": "I6"
+        },
+        "explored_edges": 200,
+        "profile": "ablate:context_binding",
+        "reachable_states": 83,
+        "violation_count": 1,
+        "violations": {
+          "bad_context_replay": [
+            "accept_evidence",
+            "derive",
+            "propose_effect",
+            "authorize_effect",
+            "attack_context_replay"
+          ]
+        }
+      },
+      "failure_non_escalation": {
+        "bad_fact_catalog": {
+          "bad_assurance_tamper": "I10",
+          "bad_context_replay": "I4",
+          "bad_expired_authorization": "I4-time",
+          "bad_in_place_overwrite": "I7",
+          "bad_outcome_reentry": "I8",
+          "bad_policy_outage_fallback": "I5",
+          "bad_self_authorized_effect": "I3",
+          "bad_silent_promotion": "I1/I2",
+          "bad_unapproved_release": "I6"
+        },
+        "explored_edges": 208,
+        "profile": "ablate:failure_non_escalation",
+        "reachable_states": 83,
+        "violation_count": 1,
+        "violations": {
+          "bad_policy_outage_fallback": [
+            "accept_evidence",
+            "derive",
+            "propose_effect",
+            "attack_policy_outage"
+          ]
+        }
+      },
+      "independent_effect_authorization": {
+        "bad_fact_catalog": {
+          "bad_assurance_tamper": "I10",
+          "bad_context_replay": "I4",
+          "bad_expired_authorization": "I4-time",
+          "bad_in_place_overwrite": "I7",
+          "bad_outcome_reentry": "I8",
+          "bad_policy_outage_fallback": "I5",
+          "bad_self_authorized_effect": "I3",
+          "bad_silent_promotion": "I1/I2",
+          "bad_unapproved_release": "I6"
+        },
+        "explored_edges": 190,
+        "profile": "ablate:independent_effect_authorization",
+        "reachable_states": 75,
+        "violation_count": 1,
+        "violations": {
+          "bad_self_authorized_effect": [
+            "accept_evidence",
+            "derive",
+            "propose_effect",
+            "attack_self_authorization"
+          ]
+        }
+      },
+      "outcome_reentry": {
+        "bad_fact_catalog": {
+          "bad_assurance_tamper": "I10",
+          "bad_context_replay": "I4",
+          "bad_expired_authorization": "I4-time",
+          "bad_in_place_overwrite": "I7",
+          "bad_outcome_reentry": "I8",
+          "bad_policy_outage_fallback": "I5",
+          "bad_self_authorized_effect": "I3",
+          "bad_silent_promotion": "I1/I2",
+          "bad_unapproved_release": "I6"
+        },
+        "explored_edges": 130,
+        "profile": "ablate:outcome_reentry",
+        "reachable_states": 59,
+        "violation_count": 1,
+        "violations": {
+          "bad_outcome_reentry": [
+            "accept_evidence",
+            "derive",
+            "propose_effect",
+            "authorize_effect",
+            "execute_effect",
+            "observe_outcome",
+            "attack_outcome_reentry"
+          ]
+        }
+      },
+      "successor_correction": {
+        "bad_fact_catalog": {
+          "bad_assurance_tamper": "I10",
+          "bad_context_replay": "I4",
+          "bad_expired_authorization": "I4-time",
+          "bad_in_place_overwrite": "I7",
+          "bad_outcome_reentry": "I8",
+          "bad_policy_outage_fallback": "I5",
+          "bad_self_authorized_effect": "I3",
+          "bad_silent_promotion": "I1/I2",
+          "bad_unapproved_release": "I6"
+        },
+        "explored_edges": 257,
+        "profile": "ablate:successor_correction",
+        "reachable_states": 101,
+        "violation_count": 1,
+        "violations": {
+          "bad_in_place_overwrite": [
+            "accept_evidence",
+            "attack_in_place_overwrite"
+          ]
+        }
+      },
+      "typed_standing": {
+        "bad_fact_catalog": {
+          "bad_assurance_tamper": "I10",
+          "bad_context_replay": "I4",
+          "bad_expired_authorization": "I4-time",
+          "bad_in_place_overwrite": "I7",
+          "bad_outcome_reentry": "I8",
+          "bad_policy_outage_fallback": "I5",
+          "bad_self_authorized_effect": "I3",
+          "bad_silent_promotion": "I1/I2",
+          "bad_unapproved_release": "I6"
+        },
+        "explored_edges": 252,
+        "profile": "ablate:typed_standing",
+        "reachable_states": 99,
+        "violation_count": 1,
+        "violations": {
+          "bad_silent_promotion": [
+            "accept_evidence",
+            "derive",
+            "attack_silent_promotion"
+          ]
+        }
+      }
+    },
+    "strict": {
+      "bad_fact_catalog": {
+        "bad_assurance_tamper": "I10",
+        "bad_context_replay": "I4",
+        "bad_expired_authorization": "I4-time",
+        "bad_in_place_overwrite": "I7",
+        "bad_outcome_reentry": "I8",
+        "bad_policy_outage_fallback": "I5",
+        "bad_self_authorized_effect": "I3",
+        "bad_silent_promotion": "I1/I2",
+        "bad_unapproved_release": "I6"
+      },
+      "explored_edges": 104,
+      "profile": "strict",
+      "reachable_states": 51,
+      "violation_count": 0,
+      "violations": {}
+    }
+  },
+  "attacks": [
+    {
+      "attack": "silent_promotion",
+      "collapsed": {
+        "admit_rate": 1.0,
+        "admitted": 250,
+        "block_rate": 0.0,
+        "blocked": 0,
+        "blocked_codes": {},
+        "profile": "collapsed",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      },
+      "control": "typed_standing",
+      "description": "Copy a derived result into accepted knowledge without a knowledge-authority transition.",
+      "invariant": "I1/I2: typed standing and no implicit promotion",
+      "strict": {
+        "admit_rate": 0.0,
+        "admitted": 0,
+        "block_rate": 1.0,
+        "blocked": 250,
+        "blocked_codes": {
+          "IMPLICIT_PROMOTION": 250
+        },
+        "profile": "strict",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      },
+      "targeted_ablation": {
+        "admit_rate": 1.0,
+        "admitted": 250,
+        "block_rate": 0.0,
+        "blocked": 0,
+        "blocked_codes": {},
+        "profile": "ablate:typed_standing",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      }
+    },
+    {
+      "attack": "self_authorization",
+      "collapsed": {
+        "admit_rate": 1.0,
+        "admitted": 250,
+        "block_rate": 0.0,
+        "blocked": 0,
+        "blocked_codes": {},
+        "profile": "collapsed",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      },
+      "control": "independent_effect_authorization",
+      "description": "Allow the inference producer to authorize and execute its own proposed effect.",
+      "invariant": "I3: no unilateral effect authorization",
+      "strict": {
+        "admit_rate": 0.0,
+        "admitted": 0,
+        "block_rate": 1.0,
+        "blocked": 250,
+        "blocked_codes": {
+          "SELF_AUTHORIZATION": 250
+        },
+        "profile": "strict",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      },
+      "targeted_ablation": {
+        "admit_rate": 1.0,
+        "admitted": 250,
+        "block_rate": 0.0,
+        "blocked": 0,
+        "blocked_codes": {},
+        "profile": "ablate:independent_effect_authorization",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      }
+    },
+    {
+      "attack": "context_replay",
+      "collapsed": {
+        "admit_rate": 1.0,
+        "admitted": 250,
+        "block_rate": 0.0,
+        "blocked": 0,
+        "blocked_codes": {},
+        "profile": "collapsed",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      },
+      "control": "context_binding",
+      "description": "Replay an authorization issued for one case in another decision context.",
+      "invariant": "I4: context binding",
+      "strict": {
+        "admit_rate": 0.0,
+        "admitted": 0,
+        "block_rate": 1.0,
+        "blocked": 250,
+        "blocked_codes": {
+          "CONTEXT_MISMATCH": 250
+        },
+        "profile": "strict",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      },
+      "targeted_ablation": {
+        "admit_rate": 1.0,
+        "admitted": 250,
+        "block_rate": 0.0,
+        "blocked": 0,
+        "blocked_codes": {},
+        "profile": "ablate:context_binding",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      }
+    },
+    {
+      "attack": "policy_outage_fallback",
+      "collapsed": {
+        "admit_rate": 1.0,
+        "admitted": 250,
+        "block_rate": 0.0,
+        "blocked": 0,
+        "blocked_codes": {},
+        "profile": "collapsed",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      },
+      "control": "failure_non_escalation",
+      "description": "Continue authorization through an implicit default when policy evaluation is unavailable.",
+      "invariant": "I5: failure non-escalation",
+      "strict": {
+        "admit_rate": 0.0,
+        "admitted": 0,
+        "block_rate": 1.0,
+        "blocked": 250,
+        "blocked_codes": {
+          "POLICY_UNAVAILABLE": 250
+        },
+        "profile": "strict",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      },
+      "targeted_ablation": {
+        "admit_rate": 1.0,
+        "admitted": 250,
+        "block_rate": 0.0,
+        "blocked": 0,
+        "blocked_codes": {},
+        "profile": "ablate:failure_non_escalation",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      }
+    },
+    {
+      "attack": "unapproved_release",
+      "collapsed": {
+        "admit_rate": 1.0,
+        "admitted": 250,
+        "block_rate": 0.0,
+        "blocked": 0,
+        "blocked_codes": {},
+        "profile": "collapsed",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      },
+      "control": "communication_release_separation",
+      "description": "Release a draft notice without a separately authorized release effect.",
+      "invariant": "I6: communication-release separation",
+      "strict": {
+        "admit_rate": 0.0,
+        "admitted": 0,
+        "block_rate": 1.0,
+        "blocked": 250,
+        "blocked_codes": {
+          "RELEASE_NOT_AUTHORIZED": 250
+        },
+        "profile": "strict",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      },
+      "targeted_ablation": {
+        "admit_rate": 1.0,
+        "admitted": 250,
+        "block_rate": 0.0,
+        "blocked": 0,
+        "blocked_codes": {},
+        "profile": "ablate:communication_release_separation",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      }
+    },
+    {
+      "attack": "in_place_overwrite",
+      "collapsed": {
+        "admit_rate": 1.0,
+        "admitted": 250,
+        "block_rate": 0.0,
+        "blocked": 0,
+        "blocked_codes": {},
+        "profile": "collapsed",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      },
+      "control": "successor_correction",
+      "description": "Replace accepted evidence under the same identifier instead of creating a successor.",
+      "invariant": "I7: successor correction",
+      "strict": {
+        "admit_rate": 0.0,
+        "admitted": 0,
+        "block_rate": 1.0,
+        "blocked": 250,
+        "blocked_codes": {
+          "IN_PLACE_OVERWRITE": 250
+        },
+        "profile": "strict",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      },
+      "targeted_ablation": {
+        "admit_rate": 1.0,
+        "admitted": 250,
+        "block_rate": 0.0,
+        "blocked": 0,
+        "blocked_codes": {},
+        "profile": "ablate:successor_correction",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      }
+    },
+    {
+      "attack": "outcome_reentry",
+      "collapsed": {
+        "admit_rate": 1.0,
+        "admitted": 250,
+        "block_rate": 0.0,
+        "blocked": 0,
+        "blocked_codes": {},
+        "profile": "collapsed",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      },
+      "control": "outcome_reentry",
+      "description": "Feed an observed outcome back into accepted knowledge without validation.",
+      "invariant": "I8: outcome re-entry",
+      "strict": {
+        "admit_rate": 0.0,
+        "admitted": 0,
+        "block_rate": 1.0,
+        "blocked": 250,
+        "blocked_codes": {
+          "OUTCOME_REENTRY_REQUIRES_ACCEPTANCE": 250
+        },
+        "profile": "strict",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      },
+      "targeted_ablation": {
+        "admit_rate": 1.0,
+        "admitted": 250,
+        "block_rate": 0.0,
+        "blocked": 0,
+        "blocked_codes": {},
+        "profile": "ablate:outcome_reentry",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      }
+    },
+    {
+      "attack": "assurance_tamper",
+      "collapsed": {
+        "admit_rate": 1.0,
+        "admitted": 250,
+        "block_rate": 0.0,
+        "blocked": 0,
+        "blocked_codes": {},
+        "profile": "collapsed",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      },
+      "control": "assurance_integrity",
+      "description": "Modify a prior receipt and test whether verification still accepts the ledger.",
+      "invariant": "I10: assurance independence/integrity",
+      "strict": {
+        "admit_rate": 0.0,
+        "admitted": 0,
+        "block_rate": 1.0,
+        "blocked": 250,
+        "blocked_codes": {},
+        "profile": "strict",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      },
+      "targeted_ablation": {
+        "admit_rate": 1.0,
+        "admitted": 250,
+        "block_rate": 0.0,
+        "blocked": 0,
+        "blocked_codes": {},
+        "profile": "ablate:assurance_integrity",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      }
+    },
+    {
+      "attack": "expired_authorization",
+      "collapsed": {
+        "admit_rate": 1.0,
+        "admitted": 250,
+        "block_rate": 0.0,
+        "blocked": 0,
+        "blocked_codes": {},
+        "profile": "collapsed",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      },
+      "control": "authorization_expiry",
+      "description": "Execute an otherwise valid authorization after its expiry step.",
+      "invariant": "I4 extension: time-bound context",
+      "strict": {
+        "admit_rate": 0.0,
+        "admitted": 0,
+        "block_rate": 1.0,
+        "blocked": 250,
+        "blocked_codes": {
+          "AUTHORIZATION_EXPIRED": 250
+        },
+        "profile": "strict",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      },
+      "targeted_ablation": {
+        "admit_rate": 1.0,
+        "admitted": 250,
+        "block_rate": 0.0,
+        "blocked": 0,
+        "blocked_codes": {},
+        "profile": "ablate:authorization_expiry",
+        "trials": 250,
+        "unexpected_error_count": 0,
+        "unexpected_error_samples": []
+      }
+    }
+  ],
+  "benchmark": {
+    "collapsed": {
+      "artifacts_per_case": 12.0,
+      "cases": 2000,
+      "max_us_per_case": 5783.123,
+      "mean_us_per_case": 1432.3737995,
+      "median_us_per_case": 1329.8155000000002,
+      "min_us_per_case": 1191.247,
+      "p95_us_per_case": 2001.0479999999998,
+      "profile": "collapsed",
+      "receipt_bytes_per_case": 9987.031111111111,
+      "receipts_per_case": 12.0,
+      "warmup_cases": 25
+    },
+    "median_runtime_delta_us": 100.51049999999987,
+    "median_runtime_ratio": 1.075582289422856,
+    "strict": {
+      "artifacts_per_case": 12.0,
+      "cases": 2000,
+      "max_us_per_case": 3809.209,
+      "mean_us_per_case": 1492.647102,
+      "median_us_per_case": 1430.326,
+      "min_us_per_case": 1338.396,
+      "p95_us_per_case": 1872.8025499999997,
+      "profile": "strict",
+      "receipt_bytes_per_case": 10722.031111111111,
+      "receipts_per_case": 12.0,
+      "warmup_cases": 25
+    }
+  },
+  "claim_boundary": "Constructive feasibility and tested guard behavior only; no claim of safety, compliance, accuracy, fairness, or superiority.",
+  "environment": {
+    "code_commit": "cf832b8859311151a44d08cc05ded400f30f60c8",
+    "implementation": "CPython",
+    "platform": "Linux-6.12.96+deb13-amd64-x86_64-with-glibc2.41",
+    "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:16:10) [GCC 11.2.0]"
+  },
+  "generated_at_utc": "2026-08-10T23:44:59.944005+00:00",
+  "sample": {
+    "accepted_outcome_lineage": [
+      "E-b731ed0fdd8c2b261adbca59",
+      "E-cf549e072e6e3652ae05b9b0",
+      "E-e19085bc13b58b64be42bb55",
+      "I-4a14ad2b2b55c0493b116afc",
+      "K-516111764ebc2a8dec096c89",
+      "K-5f5a267f408d3dadb5669352",
+      "O-145f62b15d36d29d4584944c"
+    ],
+    "context_artifacts": [
+      "C-7fcd0d5d77682a294aa366c1",
+      "C-f1a6691098ded4583920a77e",
+      "E-630397cf471f81dbd4cea877",
+      "E-67d53df0c74f224c9e30d6c2",
+      "E-b2496a104ec412f648f8ff01",
+      "E-b731ed0fdd8c2b261adbca59",
+      "E-cf549e072e6e3652ae05b9b0",
+      "E-e19085bc13b58b64be42bb55",
+      "I-4a14ad2b2b55c0493b116afc",
+      "K-516111764ebc2a8dec096c89",
+      "K-5f5a267f408d3dadb5669352",
+      "O-145f62b15d36d29d4584944c"
+    ],
+    "context_id": "ctx-58d1b5d5b6c689130ff430a3",
+    "final_artifact_id": "K-516111764ebc2a8dec096c89",
+    "ledger_verification": {
+      "checked_entries": 12,
+      "reason": "ok",
+      "valid": true
+    }
+  },
+  "schema_version": "soa-experiment-v1",
+  "seed": 20260806,
+  "valid_workflows": {
+    "completed": 250,
+    "completion_rate": 1.0,
+    "error_count": 0,
+    "error_samples": [],
+    "median_artifacts_per_case": 12.0,
+    "median_receipts_per_case": 12.0,
+    "reconstructed": 250,
+    "reconstruction_rate": 1.0,
+    "trials": 250
+  }
+}

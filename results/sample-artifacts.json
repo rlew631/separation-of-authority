@@ -1,0 +1,218 @@
+[
+  {
+    "artifact_class": "K",
+    "artifact_id": "K-5f5a267f408d3dadb5669352",
+    "context_id": "ctx-58d1b5d5b6c689130ff430a3",
+    "digest": "cef12f4ebdf157163bb03522e93349064cac28f5ec7d35324134bdfc40c3ad7c",
+    "logical_time": 1,
+    "payload_json": "{\"accepted_for\":\"synthetic-benefit-eligibility\",\"evidence\":{\"annual_income\":24000,\"application_id\":\"sample\",\"household_size\":2},\"limitations\":[],\"source\":\"authenticated-application\"}",
+    "predecessor_ids": [],
+    "producer_id": "knowledge-authority",
+    "producer_role": "knowledge",
+    "scope": "benefit-demo",
+    "signature": "090789efb1682e0d97d4f9a2107d40c5afb3267c62e85c51c989d5509444a622",
+    "source_ids": [],
+    "status": "accepted",
+    "version": "knowledge-schema-v1"
+  },
+  {
+    "artifact_class": "I",
+    "artifact_id": "I-4a14ad2b2b55c0493b116afc",
+    "context_id": "ctx-58d1b5d5b6c689130ff430a3",
+    "digest": "31cabb7937af39fe95627831baaa35e0cf3f2945ac21d0b9e33ef27a0af0db5a",
+    "logical_time": 2,
+    "payload_json": "{\"annual_income\":24000,\"applicability\":\"synthetic benefit-eligibility demonstration only\",\"eligible\":true,\"household_size\":2,\"rule_path\":[\"threshold = 20000 + 5000 * max(household_size - 1, 0)\",\"eligible = annual_income <= threshold\"],\"threshold\":25000}",
+    "predecessor_ids": [],
+    "producer_id": "inference-service",
+    "producer_role": "inference",
+    "scope": "benefit-demo",
+    "signature": "9976eadefa42a82e67fe63f1bbdbebc7fa95abe42850a48f5d637fb8954019b3",
+    "source_ids": [
+      "K-5f5a267f408d3dadb5669352"
+    ],
+    "status": "derived",
+    "version": "eligibility-rule-v1"
+  },
+  {
+    "artifact_class": "C",
+    "artifact_id": "C-f1a6691098ded4583920a77e",
+    "context_id": "ctx-58d1b5d5b6c689130ff430a3",
+    "digest": "f96ab5b2eae1d1904e98e98b41d19aee4e1c5ee8dbfc60377b0fdd48b369e36f",
+    "logical_time": 3,
+    "payload_json": "{\"audience\":\"applicant\",\"basis_ids\":[\"K-5f5a267f408d3dadb5669352\",\"I-4a14ad2b2b55c0493b116afc\"],\"causal_evidence_id\":\"I-4a14ad2b2b55c0493b116afc\",\"limitations\":[\"synthetic rule\",\"not a legal determination\"],\"presentation_type\":\"deterministic-template\",\"text\":\"Application case-999999 is approved under the synthetic rule. Recorded income is 24000; the applicable threshold is 25000.\"}",
+    "predecessor_ids": [],
+    "producer_id": "communication-service",
+    "producer_role": "communication",
+    "scope": "benefit-demo",
+    "signature": "7e1ab21449f5777b19a578ca955bb0d6595f164b32c6978ae565f48645d8f3bd",
+    "source_ids": [
+      "K-5f5a267f408d3dadb5669352",
+      "I-4a14ad2b2b55c0493b116afc"
+    ],
+    "status": "draft",
+    "version": "notice-template-v1"
+  },
+  {
+    "artifact_class": "E",
+    "artifact_id": "E-cf549e072e6e3652ae05b9b0",
+    "context_id": "ctx-58d1b5d5b6c689130ff430a3",
+    "digest": "002eb49fde7c3b3d784255742a87f13a5b374af72bc732efa8fa7bed3a89bfa9",
+    "logical_time": 4,
+    "payload_json": "{\"basis_result_id\":\"I-4a14ad2b2b55c0493b116afc\",\"effect_type\":\"set_benefit_status\",\"requested_value\":\"approved\",\"target\":\"case-999999\",\"target_version\":\"benefit-record-api-v1\"}",
+    "predecessor_ids": [],
+    "producer_id": "inference-service",
+    "producer_role": "inference",
+    "scope": "benefit-demo",
+    "signature": "5236e976d61cc7c4f45befbc8a38c2a2539ff5d64d1c0c323c719d4fd387bf36",
+    "source_ids": [
+      "I-4a14ad2b2b55c0493b116afc"
+    ],
+    "status": "proposed",
+    "version": "effect-proposal-v1"
+  },
+  {
+    "artifact_class": "E",
+    "artifact_id": "E-e19085bc13b58b64be42bb55",
+    "context_id": "ctx-58d1b5d5b6c689130ff430a3",
+    "digest": "0b97c6aff18625b1cc251eab51289b5856f63a1044394dd6de4e0b925c82dc83",
+    "logical_time": 5,
+    "payload_json": "{\"authorized_by\":\"policy-authority\",\"basis_result_id\":\"I-4a14ad2b2b55c0493b116afc\",\"effect_type\":\"set_benefit_status\",\"expires_at_step\":16,\"fallback\":null,\"policy_version\":\"policy-v1\",\"proposal_digest\":\"002eb49fde7c3b3d784255742a87f13a5b374af72bc732efa8fa7bed3a89bfa9\",\"proposal_id\":\"E-cf549e072e6e3652ae05b9b0\",\"requested_value\":\"approved\",\"target\":\"case-999999\",\"target_version\":\"benefit-record-api-v1\"}",
+    "predecessor_ids": [],
+    "producer_id": "policy-authority",
+    "producer_role": "policy",
+    "scope": "benefit-demo",
+    "signature": "8f1ac01b11e9815ad14a78f6a2a826fe885633145674584b835061ec92505f7b",
+    "source_ids": [
+      "E-cf549e072e6e3652ae05b9b0"
+    ],
+    "status": "authorized",
+    "version": "policy-v1"
+  },
+  {
+    "artifact_class": "E",
+    "artifact_id": "E-b731ed0fdd8c2b261adbca59",
+    "context_id": "ctx-58d1b5d5b6c689130ff430a3",
+    "digest": "fcca2c53cc294f652bdd4781d6b20237b3ac260b41b446f17084e5eb962b06b1",
+    "logical_time": 6,
+    "payload_json": "{\"actual_target_version\":\"benefit-record-api-v1\",\"authorization_id\":\"E-e19085bc13b58b64be42bb55\",\"authorized_by\":\"policy-authority\",\"basis_result_id\":\"I-4a14ad2b2b55c0493b116afc\",\"effect_type\":\"set_benefit_status\",\"execution_status\":\"completed\",\"expires_at_step\":16,\"fallback\":null,\"policy_version\":\"policy-v1\",\"proposal_digest\":\"002eb49fde7c3b3d784255742a87f13a5b374af72bc732efa8fa7bed3a89bfa9\",\"proposal_id\":\"E-cf549e072e6e3652ae05b9b0\",\"requested_value\":\"approved\",\"target\":\"case-999999\",\"target_version\":\"benefit-record-api-v1\"}",
+    "predecessor_ids": [],
+    "producer_id": "effect-executor",
+    "producer_role": "effect",
+    "scope": "benefit-demo",
+    "signature": "d6abe1ff1f053ff803931ed709bde9258b2b8ba28a6ea3641f3b3266bb0bb0ca",
+    "source_ids": [
+      "E-e19085bc13b58b64be42bb55"
+    ],
+    "status": "executed",
+    "version": "benefit-record-api-v1"
+  },
+  {
+    "artifact_class": "E",
+    "artifact_id": "E-630397cf471f81dbd4cea877",
+    "context_id": "ctx-58d1b5d5b6c689130ff430a3",
+    "digest": "69b6e7f4014546757ff5af34ec1a0f205af0e4bbda52b177cee736ce3581858c",
+    "logical_time": 7,
+    "payload_json": "{\"channel\":\"synthetic-notice-channel\",\"communication_id\":\"C-f1a6691098ded4583920a77e\",\"effect_type\":\"release_communication\",\"recipient\":\"applicant-999999\"}",
+    "predecessor_ids": [],
+    "producer_id": "communication-service",
+    "producer_role": "communication",
+    "scope": "benefit-demo",
+    "signature": "a756508454be4943c404b97cac1edce0e33e14f3b6c2e6f386b6b2e1402437b8",
+    "source_ids": [
+      "C-f1a6691098ded4583920a77e"
+    ],
+    "status": "proposed",
+    "version": "release-proposal-v1"
+  },
+  {
+    "artifact_class": "E",
+    "artifact_id": "E-b2496a104ec412f648f8ff01",
+    "context_id": "ctx-58d1b5d5b6c689130ff430a3",
+    "digest": "f7799ecef2f81a4eac76707e50bd93056a9df0dd8f11a3c07d7986d36058cadc",
+    "logical_time": 8,
+    "payload_json": "{\"authorized_by\":\"policy-authority\",\"channel\":\"synthetic-notice-channel\",\"communication_id\":\"C-f1a6691098ded4583920a77e\",\"effect_type\":\"release_communication\",\"expires_at_step\":19,\"fallback\":null,\"policy_version\":\"policy-v1\",\"proposal_digest\":\"69b6e7f4014546757ff5af34ec1a0f205af0e4bbda52b177cee736ce3581858c\",\"proposal_id\":\"E-630397cf471f81dbd4cea877\",\"recipient\":\"applicant-999999\"}",
+    "predecessor_ids": [],
+    "producer_id": "policy-authority",
+    "producer_role": "policy",
+    "scope": "benefit-demo",
+    "signature": "59e87751c11bb2f116f9bb9cbdedfe51f70face6339b9b7ea4ec9f8627a67c09",
+    "source_ids": [
+      "E-630397cf471f81dbd4cea877"
+    ],
+    "status": "authorized",
+    "version": "policy-v1"
+  },
+  {
+    "artifact_class": "E",
+    "artifact_id": "E-67d53df0c74f224c9e30d6c2",
+    "context_id": "ctx-58d1b5d5b6c689130ff430a3",
+    "digest": "742ad3ee02aa542bc6061857822292db484f371ba1ce388c6674e80ce3b1bdcd",
+    "logical_time": 9,
+    "payload_json": "{\"actual_target_version\":\"benefit-record-api-v1\",\"authorization_id\":\"E-b2496a104ec412f648f8ff01\",\"authorized_by\":\"policy-authority\",\"channel\":\"synthetic-notice-channel\",\"communication_id\":\"C-f1a6691098ded4583920a77e\",\"effect_type\":\"release_communication\",\"execution_status\":\"completed\",\"expires_at_step\":19,\"fallback\":null,\"policy_version\":\"policy-v1\",\"proposal_digest\":\"69b6e7f4014546757ff5af34ec1a0f205af0e4bbda52b177cee736ce3581858c\",\"proposal_id\":\"E-630397cf471f81dbd4cea877\",\"recipient\":\"applicant-999999\"}",
+    "predecessor_ids": [],
+    "producer_id": "effect-executor",
+    "producer_role": "effect",
+    "scope": "benefit-demo",
+    "signature": "871567ff5ac4b5a89595f900dca142afcaff4d016a80a3981eb24a27e49c1186",
+    "source_ids": [
+      "E-b2496a104ec412f648f8ff01"
+    ],
+    "status": "executed",
+    "version": "benefit-record-api-v1"
+  },
+  {
+    "artifact_class": "C",
+    "artifact_id": "C-7fcd0d5d77682a294aa366c1",
+    "context_id": "ctx-58d1b5d5b6c689130ff430a3",
+    "digest": "fccb2703cc36d504ce91fed60de1c3242da9441f209608b9e2ca44fd22827f1b",
+    "logical_time": 10,
+    "payload_json": "{\"audience\":\"applicant\",\"basis_ids\":[\"K-5f5a267f408d3dadb5669352\",\"I-4a14ad2b2b55c0493b116afc\"],\"causal_evidence_id\":\"I-4a14ad2b2b55c0493b116afc\",\"delivery_status\":\"delivered\",\"limitations\":[\"synthetic rule\",\"not a legal determination\"],\"presentation_type\":\"deterministic-template\",\"release_effect_id\":\"E-67d53df0c74f224c9e30d6c2\",\"text\":\"Application case-999999 is approved under the synthetic rule. Recorded income is 24000; the applicable threshold is 25000.\"}",
+    "predecessor_ids": [],
+    "producer_id": "effect-executor",
+    "producer_role": "effect",
+    "scope": "benefit-demo",
+    "signature": "3879380d5f8303d922d0fff936cb1988b0bad08ad002dcd229fa0b10e4dd9c40",
+    "source_ids": [
+      "C-f1a6691098ded4583920a77e",
+      "E-67d53df0c74f224c9e30d6c2"
+    ],
+    "status": "released",
+    "version": "notice-template-v1"
+  },
+  {
+    "artifact_class": "O",
+    "artifact_id": "O-145f62b15d36d29d4584944c",
+    "context_id": "ctx-58d1b5d5b6c689130ff430a3",
+    "digest": "f9ce9191c5fa4fe747aad26db1fa90dff8fde866007a5a4f120a9c65c3cc6578",
+    "logical_time": 11,
+    "payload_json": "{\"observation_source\":\"synthetic-system-of-record-readback\",\"observed_state\":\"approved\",\"related_effect_id\":\"E-b731ed0fdd8c2b261adbca59\"}",
+    "predecessor_ids": [],
+    "producer_id": "outcome-observer",
+    "producer_role": "observer",
+    "scope": "benefit-demo",
+    "signature": "bc7c430aafdbfe3a1233fdd375ee2cbe6bc749189bc79ea92ef64c9be269d334",
+    "source_ids": [
+      "E-b731ed0fdd8c2b261adbca59"
+    ],
+    "status": "observed",
+    "version": "observer-v1"
+  },
+  {
+    "artifact_class": "K",
+    "artifact_id": "K-516111764ebc2a8dec096c89",
+    "context_id": "ctx-58d1b5d5b6c689130ff430a3",
+    "digest": "14e684eb91c9d52ffcb6080da826ab210e5e0d15a4d447180cddfcf3a3a65275",
+    "logical_time": 12,
+    "payload_json": "{\"accepted_for\":\"post-effect reconstruction\",\"evidence\":{\"observation_source\":\"synthetic-system-of-record-readback\",\"observed_state\":\"approved\",\"related_effect_id\":\"E-b731ed0fdd8c2b261adbca59\"},\"source\":\"validated-outcome\"}",
+    "predecessor_ids": [],
+    "producer_id": "knowledge-authority",
+    "producer_role": "knowledge",
+    "scope": "benefit-demo",
+    "signature": "0b7d91a1f52752ae91d7fa39f6a9062e9e5ff692b904f7bae943420fb409079f",
+    "source_ids": [
+      "O-145f62b15d36d29d4584944c"
+    ],
+    "status": "accepted",
+    "version": "knowledge-schema-v1"
+  }
+]
