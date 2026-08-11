@@ -7,7 +7,8 @@ date-released: 2026-08-10
 license: MIT
 repository-code: "https://github.com/rlew631/separation-of-authority"
 authors:
-  - name: "Allmende Labs"
+  - name: "Ryan Lewis"
+  - name: "Ramon Martin"
 abstract: >-
   Minimal single-process reference implementation, abstract-state exploration,
   invariant-directed fault/ablation suite, and overhead benchmark for separating
